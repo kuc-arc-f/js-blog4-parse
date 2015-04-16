@@ -1,0 +1,160 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>Sensor - Parse App</title>
+  <meta name="description" content="My Parse App">
+  <meta name="viewport" content="width=device-width">
+  <link href="bootstrap-3.1.0/css/bootstrap.min.css" rel="stylesheet">
+  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+  <script src="bootstrap-3.1.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.0.min.js"></script>
+  <script type="text/javascript" src="js/AppConst.js"></script>
+  <script type="text/javascript" src="js/app_master.js"></script>
+  
+  <link rel="Stylesheet" href="css/loading.css" media="screen"  type="text/css" />
+  <link rel="Stylesheet" href="css/app_sensor.css" media="screen"  type="text/css" />
+</head>
+
+<body>
+<div class="container">
+<!-- head -->
+	<div class="row" style="margin-top:20px;">
+ 	<div class="col-sm-12" align="right">
+ 	  <a href="./index.html" class="btn btn-success btn-lg"> Report </a>
+ 	  &nbsp;&nbsp;<a href="#" class="btn btn-default btn-lg"> Setting </a>
+ 	</div>
+	</div>
+<!-- Content -->
+
+<form id="form1">
+<input type="hidden" id="id-text-objctid"  value="id-123"> </input>
+</form>
+ 	<div class="row" style="margin-top:20px;">
+ 	<div class="col-sm-12">
+		<h2 ><font style="color: green;">[Setting] mc_ID : </font>
+		<font id="id-font-mcid" style="color: green;">0</font>
+		 </h2>
+ 	</div>
+ 	</div>
+ 	<div class="form-group">
+ 	<div class="row" style="margin-top:20px;">
+	 	<div class="col-sm-6" align="right">
+		    <a id="id-a-update" class="btn btn-primary btn-lg"> Save </a>
+		</div>
+	 	<div class="col-sm-6" align="right">&nbsp;
+	 	</div>
+	 	</div>
+ 	</div>
+<div class="row" style="margin-top:20px;">
+  <div class="form-group">
+     <label class="col-sm-2" for="">Micon Name</label>
+	 <label class="col-sm-10" for="" id="id-lbl_mc-name">micon-1</label>
+  </div>
+</div>
+<div class="row" style="margin-top:20px;">
+	<div class="form-group">
+		<label class="col-sm-2" for="">Moisture Limit</label>
+		<div class="col-sm-3">
+		<input  type="text" class="form-control" maxlength="4" name="txt_moi_num" id="txt_moi_num" placeholder="500" value="500">	
+		</div>
+		<div class="col-sm-7">&nbsp;
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-top:20px;">
+	<div class="form-group">
+		<label class="col-sm-2" for="">Valve Open (Sec)</label>
+		<div class="col-sm-3">
+		<input type="text" class="form-control" maxlength="3" name="txt_kai_num_1" id="txt_kai_num_1" placeholder="30" value="30">	
+		</div>
+		<div class="col-sm-7">&nbsp;
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-top:20px;">
+	<div class="form-group">
+		<label class="col-sm-2" for="">Valve-1</label>
+		<div class="col-sm-3">
+		<select class="form-control"  name="txt_vnum_1" id="txt_vnum_1">
+		  <option value="1" selected >ON</option>
+		  <option value="0">OFF</option>
+		</select>
+		</div>
+		<div class="col-sm-7">&nbsp;
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-top:20px;">
+	<div class="form-group">
+		<label class="col-sm-2" for="">Valve-2</label>
+		<div class="col-sm-3">
+		<select class="form-control"  name="txt_vnum_2" id="txt_vnum_2">
+		  <option value="1">ON</option>
+		  <option value="0" selected >OFF</option>
+		</select>
+		</div>
+		<div class="col-sm-7">&nbsp;
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-top:20px;">
+	<div class="form-group">
+		<label class="col-sm-2" for="">Valve-3</label>
+		<div class="col-sm-3">
+		<select class="form-control"  name="txt_vnum_3" id="txt_vnum_3">
+		  <option value="1">ON</option>
+		  <option value="0" selected >OFF</option>
+		</select>
+		</div>
+		<div class="col-sm-7">&nbsp;
+		</div>
+	</div>
+</div>
+<div class="row" style="margin-top:20px;">
+	<div class="form-group">
+		<label class="col-sm-2" for="">Valve-4</label>
+		<div class="col-sm-3">
+		<select class="form-control"  name="txt_vnum_4" id="txt_vnum_4">
+		  <option value="1">ON</option>
+		  <option value="0" selected >OFF</option>
+		</select>
+		</div>
+		<div class="col-sm-7">&nbsp;
+		</div>
+	</div>
+</div>
+<hr />
+<br />
+<a href="./index.html" class="btn btn-default btn-lg"> Back 
+</a>
+  
+  
+</div>  <!--container  -->
+ <!-- INDI -->
+<div id="id_div_indi" style=" visibility: hidden;">
+<center>
+    <div id="box_indi">
+    </div>
+	<h3 style="color: #717171;">Loading...</h3>
+		<div id="floatingBarsG" >
+			<div class="blockG" id="rotateG_01">
+			</div>
+			<div class="blockG" id="rotateG_02">
+			</div>
+			<div class="blockG" id="rotateG_03">
+			</div>
+			<div class="blockG" id="rotateG_04">
+			</div>
+			<div class="blockG" id="rotateG_05">
+			</div>
+			<div class="blockG" id="rotateG_06">
+			</div>
+			<div class="blockG" id="rotateG_07">
+			</div>
+			<div class="blockG" id="rotateG_08">
+			</div>
+		</div>
+</center>
+</div>
+</body>
+</html>
