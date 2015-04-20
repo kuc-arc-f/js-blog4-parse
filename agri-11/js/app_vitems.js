@@ -114,7 +114,8 @@ var AppValve = (function () {
 		query.find({
 		   success: function(todos) {
 		   	   if(todos.length < 1){
-				   alert('error, Nothing data.');
+//				   alert('error, Nothing data.');
+				   console.log('error, Nothing data.');
 		   	   }else{
 		   	   	   parent_app.add_table(todos);
 		   	   }
