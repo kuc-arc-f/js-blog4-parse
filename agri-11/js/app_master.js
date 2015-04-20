@@ -48,7 +48,8 @@ var MasterApp = (function () {
 		var GameScore = Parse.Object.extend(className);
 		var master = new GameScore();
 		
-		master.set("mc_id", 1);
+//		master.set("mc_id", 1);
+		master.set("mc_id", mMC_ID );
 		master.set("mc_name", "micon-1");
 		master.set("moi_num", mInit_moi_num);
 
